@@ -55,7 +55,22 @@ see [Run a Validator Node with Ansible](run-validator-ansible.md).
   ```
 
 * RabbitMQ installed on both the sentry and the validator machines.
-  See [Downloading and Installing RabbitMQ](https://www.rabbitmq.com/download.html).
+
+  Here are the commands to install RabbitMQ:
+
+  ```sh
+  sudo apt-get update
+  sudo apt install build-essential
+  sudo apt install erlang
+  wget https://github.com/rabbitmq/rabbitmq-server/releases/download/v3.10.8/rabbitmq-server_3.10.8-1_all.deb
+  sudo dpkg -i rabbitmq-server_3.10.8-1_all.deb
+
+  ```
+  :::tip
+
+  Check more information about downloading and installing RabbitMQ [<ins>here</ins>](https://www.rabbitmq.com/download.html).
+
+  :::
 
 ## Overview
 
@@ -123,6 +138,7 @@ Once you are on the correct release, install Heimdall:
 
 ```sh
 make install
+source ~/.profile
 ```
 
 Check the Heimdall installation:

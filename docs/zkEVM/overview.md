@@ -20,19 +20,13 @@ image: https://matic.network/banners/matic-network-16x9.png
 
 This documentation is still a **Work In Progress**. Some topics have been discussed in greater depth, while others require additional clarification.
 
+If you are interested in learning about the basics of zero-knowledge, EVM, and other fundamental concepts behind Polygon zkEVM, check out the [<ins>Polygon zkEVM basics</ins>](https://wiki.polygon.technology/docs/home/polygon-basics/zkEVM-basics).
+
 :::
 
 Polygon zkEVM is a decentralized Ethereum Layer 2 scalability solution that uses cryptographic zero-knowledge proofs to offer validity and quick finality to off-chain transaction computation, also known as a **ZK-Rollup**.
 
 The ZK-Rollup executes smart contracts transparently, by publishing zero-knowledge validity proofs, while maintaining opcode compatibility with the Ethereum Virtual Machine. This documentation provides an overview of the Polygon zkEVM.
-
-:::tip **Building on zkEVM**
-
-Building dApps on **zkEVM** is similar to Ethereum. Simply switch to the zkEVM RPC and start building.
-
-**Polygon zkEVM** provides a complete EVM-like experience for Developers and Users alike. You do not need special toolings or new wallets for building or interacting with **zkEVM**.
-
-:::
 
 ## **Architecture of zkEVM**
 
@@ -44,6 +38,7 @@ The major components of zkEVM are:
 - zkNode
    - Synchronizer
    - Sequencers & Aggregators
+   - RPC
 - zkProver
 - LX-to-LY Bridge
 
@@ -51,22 +46,22 @@ The skeletal architecture of Polygon zkEVM is shown below:
 
 ![Skeletal Overview of zkEVM](figures/fig1-simpl-arch.png)
 
-## **[Proof of Efficiency (PoE)](proof-of-efficiency)**
+## **[Proof of Efficiency (PoE)](https://wiki.polygon.technology/docs/zkEVM/proof-of-efficiency)**
 
 The earlier version, **Polygon Hermez 1.0**, was based on the **Proof of Donation (PoD)** consensus mechanism. PoD was basically a decentralized auction conducted automatically, with participants (coordinators) bidding a certain number of tokens in order to be chosen to create the next batch.
 
 Our latest **Proof of Efficiency (PoE)** consensus mechanism leverages the experience of the existing **PoD** in v1.0 and add support for the permissionless participation of multiple coordinators to produce batches in L2.
 
-Explore Proof of Efficiency in detail [<ins>here</ins>](proof-of-efficiency).
+Explore Proof of Efficiency in detail [here](https://wiki.polygon.technology/docs/zkEVM/proof-of-efficiency).
 
-## **[zkNode](zkNode)**
+## **[zkNode](https://wiki.polygon.technology/docs/zkEVM/zkNode)**
 
 zkNode is the software needed to run any zkEVM node. It is a client that the network requires to implement the Synchronization and govern the roles of the participants (Sequencers or Aggregators). Polygon zkEVM participants will choose how they participate:
 
 - As a node to know the state of the network, or
 - As a participant in the process of batch production in any of the two roles: **Sequencer** or **Aggregator**
 
-The zkNode Architecture modular in nature. You can dig deeper into zkNodes and its components [<ins>here</ins>](zkNode).
+The zkNode architecture is modular in nature. You can dig deeper into zkNode and its components [here](https://wiki.polygon.technology/docs/zkEVM/zkNode).
 
 ### **Incentivization Structure**
 
@@ -84,7 +79,7 @@ The two permissionless participants of the zkEVM network are: **Sequencers** and
    - Static Cost: L1 call cost + Server cost (to build a proof)
    - Profitable if: `$MATIC fee` > `L1 call` + `Server cost`
 
-## **[zkProver](architecture/zkProver)**
+## **[zkProver](https://wiki.polygon.technology/docs/zkEVM/architecture/zkProver)**
 
 zkEVM employs advanced zero-knowledge technology to create validity proofs. It uses a **zero-knowledge prover (zkProver)**, which is intended to run on any server and is being engineered to be compatible with most consumer hardware. Every **Aggregator** will use this zkProver to validate batches and provide Validity Proofs.
 
@@ -92,9 +87,9 @@ It consists of a **Main State Machine Executor**, a collection of **secondary St
 
 ![Skeletal Overview of zkProver](figures/fig4-zkProv-arch.png)
 
-In a nutshell, **the zkEVM expresses state changes in a polynomial form**. As a result, the constraints that each proposed batch must meet are polynomial constraints or polynomial identities. To put it another way, all valid batches must satisfy specific polynomial constraints. Check out the detailed architecture of zkProver [<ins>here</ins>](architecture/zkProver).
+In a nutshell, **the zkEVM expresses state changes in a polynomial form**. As a result, the constraints that each proposed batch must meet are polynomial constraints or polynomial identities. To put it another way, all valid batches must satisfy specific polynomial constraints. Check out the detailed architecture of zkProver [here](https://wiki.polygon.technology/docs/zkEVM/architecture/zkProver).
 
-## **[The LX-to-LY Bridge](lx-ly-bridge)**
+## **[The LX-to-LY Bridge](https://wiki.polygon.technology/docs/zkEVM/lx-ly-bridge)**
 
 An **LX-LY bridge** is a Smart Contract that lets users transfer their assets between two layers, LX and LY. The L1-L2 in zkEVM is a decentralised bridge for secure deposits and withdrawal of assets. It is a combination of two smart contracts, one deployed on one chain and the second on the other.
 
@@ -118,9 +113,10 @@ Before getting into a transaction flow in L2, users need some funds to perform a
 - **L2 Transactions**
    - User initiates tx in a Wallet (e.g. Metamask) and sends it to a Sequencer
    - It gets finalized on L2 once Sequencer commits to add his transaction
-   - Transaction has finalized on L2, but not on L1 (simply put, L2 state is not yet on L1)
+   - Transaction has finalized on L2, but not on L1 (simply put, L2 state is not yet on L1). Also known as **Trusted State**
+   - Sequencer sends the batch data to L1 smart contract, enabling any node to synchronize from L1 in a trustless way (aka **Virtual State**)
    - Aggregator will take pending transactions to be verified and build a Proof in order to achieve finality on L1
-   - Once the Proof is validated, user's transactions will attain L1 finality (important for withdrawals)
+   - Once the Proof is validated, user's transactions will attain L1 finality (important for withdrawals). This is called the **consolidated state**.
 
 ## **Design Characteristics**
 

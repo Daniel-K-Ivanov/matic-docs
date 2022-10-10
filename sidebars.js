@@ -39,6 +39,7 @@ module.exports = {
         "maintain/polygon-basics/who-is-delegator",
         "maintain/polygon-basics/who-is-validator",
         "home/architecture/polygon-architecture",
+        "home/polygon-basics/zkEVM-basics"
       ],
     },
     "home/faq",
@@ -859,6 +860,7 @@ module.exports = {
 
   zkEVM: [
     "zkEVM/overview",
+    "zkEVM/develop",
     "zkEVM/proof-of-efficiency",
     "zkEVM/zkNode",
     "zkEVM/Architecture/zkProver",
@@ -890,7 +892,8 @@ module.exports = {
         "zkEVM/PIL/advanced-features",
       ]
     },
-    "zkEVM/open-source-repos"
+    "zkEVM/open-source-repos",
+    "zkEVM/glossary"
   ],
 
   nightfall: [
@@ -1060,6 +1063,7 @@ module.exports = {
         "edge/additional-features/stress-testing",
         "edge/additional-features/blockscout",
         "edge/additional-features/permission-contract-deployment",
+        "edge/additional-features/predeployment",
       ],
     },
     {

@@ -30,15 +30,6 @@ For snapshot download links, see the [<ins>Polygon Chains Snapshots</ins>](https
 
 :::
 
-## **Prerequisites**
-
-- Minimum hardware requirements: 
-    - 4-8+ core CPU 
-    - 16-32GB RAM
-    - 2TB+ SSD free storage space
-- Build-essential packages
-- Golang version 1.18+
-
 ## **Overview**
 
 - Prepare the machine
@@ -102,10 +93,10 @@ git clone https://github.com/maticnetwork/heimdall
 cd heimdall
 
 # Checkout to a proper version, for example
-# Mainnet: git checkout v0.2.11-mainnet
-# Testnet: git checkout v0.2.1-mumbai
+git checkout v0.2.11
 git checkout <TAG OR BRANCH>
 make install
+source ~/.profile
 ```
 
 That will install the `heimdalld` and `heimdallcli` binaries. Verify the installation by checking the Heimdall version on your machine:

@@ -180,7 +180,7 @@ Yes. The demo is available [Here](https://www.youtube.com/watch?v=l1vb5pjezJ8)
 
 ## What is the transaction per seconds?
 
-Currently “a single Polygon side chain” can theoretically handle 2^16 (7,000+) transactions per second
+Currently “a single Polygon side chain” can theoretically handle 7,000+ transactions per second.
 
 ## Is token type ERC20?
 
@@ -197,7 +197,7 @@ In terms of the Roadmap, we are going to publish a detailed roadmap soon.
 
 ## What is the expected TPS you'll be able to bring to the Ethereum network? What are you running at now on testnet?
 
-A single side chain has the capacity of 2^16 (7,000+) transactions per second. Polygon has the capability to add multiple side chains, But currently, our focus would be on stabilizing the network with one side chain.
+A single side chain has the capacity of 7,000+ transactions per second. Polygon has the capability to add multiple side chains, But currently, our focus would be on stabilizing the network with one side chain.
 
 ## "We have chosen Ethereum as the first platform to showcase our scalability" What other platforms are you aiming toward, and is there a timeline for implementation
 

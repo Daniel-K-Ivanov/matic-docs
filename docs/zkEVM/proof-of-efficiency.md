@@ -26,7 +26,7 @@ The latest **Proof of Efficiency (PoE)** consensus mechanism leverages the exper
 
 Let's explore in detail why we chose PoE over PoD consensus mechanism.
 
-## **Why is PoD not the Best Option?**
+## **Why PoD is not the Best Option**
 
 The PoD model fell out of our preferable options for the reasons listed below:
 
@@ -67,13 +67,13 @@ Unless, among other things, the proving module can be highly accelerated to miti
 
 The underlying protocol in zkEVM ensures that the state transitions are correct by employing a validity proof. To ensure that a set of pre-determined rules have been followed for allowing transitioning of the state, a smart contract is employed.
 
-A smart contract verifies the validity proofs to ensure that each transition is completed correctly. This is accomplished by employing zk-SNARK circuits. A system of this type requires two processes: *transaction batching* and *transaction validation*.
+A smart contract verifies the validity proofs to ensure that each transition is completed correctly. This is accomplished by employing zk-SNARK circuits. A system of this type requires two processes: **transaction batching** and **transaction validation**.
 
 To carry out these procedures, zkEVM employs two sorts of participants: **Sequencers** and **Aggregators**. Under this two-layer model: 
 
-- [**Sequencers**](zkNode#sequencers) &rarr; propose transaction batches to the network, i.e. they roll-up the transaction requests in batches and add them to the PoE Smart Contract.
+- [**Sequencers**](https://wiki.polygon.technology/docs/zkEVM/zkNode#sequencers) &rarr; propose transaction batches to the network, i.e. they roll-up the transaction requests in batches and add them to the PoE Smart Contract.
 
-- [**Aggregators**](zkNode#aggregators) &rarr; check the validity of the transaction batches and provide validity proofs. Any permissionless Aggregator can submit the proof to demonstrate the correctness of the state transition computation.
+- [**Aggregators**](https://wiki.polygon.technology/docs/zkEVM/zkNode#aggregators) &rarr; check the validity of the transaction batches and provide validity proofs. Any permissionless Aggregator can submit the proof to demonstrate the correctness of the state transition computation.
 
 The PoE Smart Contract, therefore, makes two calls: One to receive batches from Sequencers, and another to Aggregators, requesting batches to be validated.
 
@@ -81,9 +81,10 @@ The PoE Smart Contract, therefore, makes two calls: One to receive batches from 
 
 ## **Proof of Efficiency Tokenomics**
 
-The PoE Smart Contract imposes the following requirements on Sequencers and Aggregators.
+The PoE Smart Contract imposes the following requirements on Sequencers and Aggregators:
 
 ### **Sequencers**
+
 - Anyone with the software necessary for running a zkEVM node can be a Sequencer. 
 - Every Sequencer must pay a fee in form of MATIC tokens to earn the right to create and propose batches. 
 - A Sequencer that proposes valid batches (which consist of valid transactions), is incentivised with the fee paid by transaction-requestors or the users of the network. 
@@ -94,6 +95,6 @@ The PoE Smart Contract imposes the following requirements on Sequencers and Aggr
 An Aggregator receives all the transaction information from the Sequencer and sends it to the prover which provides a small zk-proof after complex polynomial computations. The smart contract validates this proof. This way, an aggregator collects the data, sends it to the prover, receives its output and finally, sends the information to the smart contract to check that the validity proof from the prover is correct. 
 
 - An Aggregator's task is to provide validity proofs for the L2 transactions proposed by Sequencers.
-- In addition to running zkEVM's zkNode software, Aggregators need to have specialised hardware for creating the zero-knowledge validity proofs. We, herein, call it the zkProver. (You will read about it later in this document).
-- For a given batch or batches, an Aggregator that submits a validity proof first earns the Matic fee (which is being paid by the Sequencer(s) of the batch(es)).
-- The Aggregators need to indicate their intention to validate transactions and then they compete to produce the validity proofs based on their own strategy.
+- In addition to running zkEVM's zkNode software, Aggregators need to have specialised hardware for creating the zero-knowledge validity proofs utilizing zkProver.
+- For a given batch or batches, an Aggregator that submits a validity proof first earns the $MATIC fee (which is being paid by the Sequencer(s) of the batch(es)).
+- The Aggregators need to indicate their intention to validate transactions. After that, they compete to produce validity proofs based on their own strategy.

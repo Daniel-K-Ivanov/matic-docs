@@ -12,6 +12,18 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
+This tutorial guides you through starting and running a full node using Ansible. For the system requirements, see the [Minimum Technical Requirements](technical-requirements) guide.
+
+:::note
+
+Steps in this guide involve waiting for the Heimdall and Bor services to fully sync. This process takes several days to complete.
+
+Alternatively, you can use a maintained snapshot, which will reduce the sync time to a few hours. For detailed instructions, see [<ins>Snapshot Instructions for Heimdall and Bor</ins>](https://forum.polygon.technology/t/snapshot-instructions-for-heimdall-and-bor/9233).
+
+For snapshot download links, see the [<ins>Polygon Chains Snapshots</ins>](https://snapshots.matic.today/) page.
+
+:::
+
 <Tabs
   defaultValue="mainnet"
   values={[

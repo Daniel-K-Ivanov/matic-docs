@@ -25,8 +25,8 @@ A proof is generated only if all the following cases are true:
 
 - New [commitment](./commitments#what-are-commitments) is valid
 - Old [commitment](./commitments#what-are-commitments) is valid and owned by the sender
-- [Nullifier] (./commitments#what-are-nullifiers) is valid 
-- Merkle Tree path/root is valid
+- [Nullifier](./commitments#what-are-nullifiers) is valid 
+- Merkle Tree path / root is valid
 - Ciphertext containing commitment is valid
 
 
