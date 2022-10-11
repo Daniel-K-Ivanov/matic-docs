@@ -1,7 +1,7 @@
 ---
 id: query-json-rpc
-title:
-description: ""
+title: Consulta terminales JSON RPC
+description: "Consulta datos e inicia la cadena con una cuenta preacuñada."
 keywords:
   - docs
   - polygon
@@ -11,10 +11,11 @@ keywords:
   - node
 ---
 
-##  {#overview}
+## Resumen {#overview}
 
+La capa JSON-RPC de Polygon Edge proporciona a los desarrolladores con la funcionalidad de interactuar fácilmente con la cadena de bloques a través de solicitudes HTTP.
 
-
+Este ejemplo cubre el uso de herramientas como **curl** to query information, as well as starting the chain with a premined account,
 
 
 ##  {#step-1-create-a-genesis-file-with-a-premined-account}
