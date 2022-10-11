@@ -1,6 +1,6 @@
 ---
 id: blockchain
-title:
+title: Cadena de bloques
 description:
 keywords:
   - docs
@@ -12,7 +12,7 @@ keywords:
   - state
 ---
 
-##  {#overview}
+## Resumen {#overview}
 
 
 
