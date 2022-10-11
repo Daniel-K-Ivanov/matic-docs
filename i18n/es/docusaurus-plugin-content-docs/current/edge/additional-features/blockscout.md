@@ -1,7 +1,7 @@
 ---
 id: blockscout
 title: Blockscout
-description: Cómo configurar una instancia de Blockscout para trabajar Polygon Edge.
+description: Cómo configurar una instancia de Blockscout para trabajar con Polygon Edge.
 keywords:
   - docs
   - polygon
