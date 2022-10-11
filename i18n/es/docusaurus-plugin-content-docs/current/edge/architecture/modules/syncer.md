@@ -11,7 +11,7 @@ keywords:
   - synchronization
 ---
 
-##  {#overview}
+## Resumen {#overview}
 
 
 
