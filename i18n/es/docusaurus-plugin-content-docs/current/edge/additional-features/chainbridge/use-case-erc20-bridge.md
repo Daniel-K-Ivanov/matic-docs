@@ -1,7 +1,7 @@
 ---
 id: use-case-erc20-bridge
-title:
-description:
+title: Usa el caso Puente ERC-20
+description: Ejemplo para el contrato del Puente ERC-20
 keywords:
   - docs
   - polygon
@@ -10,9 +10,9 @@ keywords:
   - ERC20
 ---
 
+Esta sección tiene como objetivo proporcionarte un flujo de configuración del Puente ERC-20 para un uso práctico del caso.
 
-
-
+En esta guía utilizarás la red de pruebas de Mumbai, de PoS de Polygon
 
 ##  {#scenario}
 
