@@ -1,7 +1,7 @@
 ---
 id: stress-testing
-title:
-description:
+title: Pruebas de estrés de la red
+description: Cómo realizar una prueba de estrés utilizando el robot de carga. de Polygon Edge.
 keywords:
   - docs
   - polygon
@@ -11,52 +11,54 @@ keywords:
   - test
 ---
 
-##  {#prerequisites}
+## Prerrequisitos {#prerequisites}
 
+Esta guía asume que:
 
+- Tienes una red Polygon Edge funcionando y ejecutando
+- Ambas de tus terminales JSON-RPC y GRPC son alcanzables
 
--
--
+## Resumen {#overview}
 
-##  {#overview}
+El robot de carga de Polygon Edge es una utilidad de ayuda que está destinada a probar el estrés de una red de Polygon Edge.
 
+Actualmente, esta soporta 2 modos:
 
+- `transfer` - modo que realiza pruebas de estrés utilizando transacciones de transferencia de fondos. **[Por defecto]**.
+- `deploy` - modo que implementa contratos inteligentes específicos con cada transacción.
 
+### Modo de transferir {#transfer-mode}
 
+El modo de transferir asume que hay una cuenta de remitente que tiene fondos iniciales para realizar la ejecución del robot de carga.
 
--
--
-
-###  {#transfer-mode}
-
-
-
-
+la dirección de la cuenta del remitente y la clave privada deben establecerse en las variables del entorno:
 
 ```bash
 # Example
 export LOADBOT_0x9A2E59d06899a383ef47C1Ec265317986D026055=154c4bc0cca942d8a0b49ece04d95c872d8f53d34b8f2ac76253a3700e4f1151
 ```
 
-###  {#deploy-mode}
+### Modo Implementar  {#deploy-mode}
 
+El modo de implementación lleva a cabo la implementación del contrato con cada nueva transacción en la ejecución del robot de carga. El contrato que se está implementando se puede especificar usando
+ [indicadores específicos](/docs/edge/get-started/cli-commands#loadbot-flags), o si se omite la ruta del contrato, por defecto
+`Greeter.sol`  [el contrato](https://github.com/nomiclabs/hardhat/blob/master/packages/hardhat-core/sample-projects/basic/contracts/Greeter.sol) en cambio, se utiliza.
 
+### Terminología {#terminology}
 
-###  {#terminology}
+Esta sección cubre alguna terminología básica con respecto a la configuración del robot de carga.
 
+- **calcular** -el número de transacciones que se enviarán en el modo especificado
+- **tps** - El número de transacciones que deben enviarse al nodo por segundo
 
+## Iniciar el robot de carga {#start-the-loadbot}
 
--
--
-
-##  {#start-the-loadbot}
-
-
+Como un ejemplo, aquí hay un comando válido que puedes utilizar para ejecutar el robot de carga utilizando dos cuentas preacuñadas:
 ```bash
 polygon-edge loadbot  --jsonrpc http://127.0.0.1:10002 --grpc-address 127.0.0.1:10000 --sender 0x9A2E59d06899a383ef47C1Ec265317986D026055 --count 2000 --value 0x100 --tps 100
 ```
 
-
+Deberías obtener un resultado similar a esto en tu terminal:
 ```bash
 =====[LOADBOT RUN]=====
 
