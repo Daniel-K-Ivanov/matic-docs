@@ -38,7 +38,7 @@ In order to add the **Polygon zkEVM** network to your wallet, you will need to e
 - **RPC URL**: [https://public.zkevm-test.net:2083](https://public.zkevm-test.net:2083)
 - **Chain ID**: 1402
 - **Currency Symbol**: ETH
-- **Block Explorer URL**: [https://public.zkevm-test.net:2083](https://public.zkevm-test.net:2083)
+- **Block Explorer URL**: [https://public.zkevm-test.net:8443](https://public.zkevm-test.net:8443)
 
 Also, for moving assets across chains, you will need to use the zkEVM Bridge. The bridge is available on [https://public.zkevm-test.net/](https://public.zkevm-test.net/).
 
